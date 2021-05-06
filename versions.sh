@@ -12,17 +12,6 @@ declare -A gpgKeys=(
 	# petk & derick
 	# https://www.php.net/gpg-keys.php#gpg-7.4
 	[7.4]='42670A7FE4D0441C8E4632349E4FDC074A4EF02D 5A52880781F755608BF815FC910DEB46F53EA312'
-
-	# https://wiki.php.net/todo/php73
-	# cmb & stas
-	# https://www.php.net/gpg-keys.php#gpg-7.3
-	[7.3]='CBAF69F173A0FEA4B537F470D66C9593118BCCB6 F38252826ACD957EF380D39F2F7956BC5DA04B5D'
-
-	# https://wiki.php.net/todo/php72
-	# pollita & remi
-	# https://www.php.net/downloads.php#gpg-7.2
-	# https://www.php.net/gpg-keys.php#gpg-7.2
-	[7.2]='1729F83938DA44E27BA0F4D3DBDB397470D12172 B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F'
 )
 # see https://www.php.net/downloads.php
 
@@ -112,10 +101,7 @@ for version in "${versions[@]}"; do
 	variants='[]'
 	# order here controls the order of the library/ file
 	for suite in \
-		buster \
-		stretch \
-		alpine3.13 \
-		alpine3.12 \
+		focal \
 	; do
 		for variant in cli apache fpm zts; do
 			[ -d "$version/$suite/$variant" ] || continue

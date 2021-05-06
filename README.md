@@ -2,7 +2,7 @@
 
 ## Maintained by: [the Docker Community](https://github.com/docker-library/php)
 
-This is the Git repo of the [Docker "Official Image"](https://github.com/docker-library/official-images#what-are-official-images) for [`php`](https://hub.docker.com/_/php/) (not to be confused with any official `php` image provided by `php` upstream). See [the Docker Hub page](https://hub.docker.com/_/php/) for the full readme on how to use this Docker image and for information regarding contributing and issues.
+This is a fork of the Git repo of the [Docker "Official Image"](https://github.com/docker-library/official-images#what-are-official-images) for [`php`](https://hub.docker.com/_/php/) (not to be confused with any official `php` image provided by `php` upstream). See [the Docker Hub page](https://hub.docker.com/_/php/) for the full readme on how to use this Docker image and for information regarding contributing and issues.
 
 The [full image description on Docker Hub](https://hub.docker.com/_/php/) is generated/maintained over in [the docker-library/docs repository](https://github.com/docker-library/docs), specifically in [the `php` directory](https://github.com/docker-library/docs/tree/master/php).
 

@@ -38,17 +38,11 @@ for version; do
 		export suite variant
 
 		alpineVer="${suite#alpine}" # "3.12", etc
-		if [ "$suite" != "$alpineVer" ]; then
-			template='Dockerfile-alpine.template'
-			from="alpine:$alpineVer"
-		else
-			template='Dockerfile-debian.template'
-			from="debian:$suite-slim"
-		fi
+		template='Dockerfile-debian.template'
+		from="ubuntu:$suite"
 		export from
 
 		case "$variant" in
-			apache) cmd='["apache2-foreground"]' ;;
 			fpm) cmd='["php-fpm"]' ;;
 			*) cmd='["php", "-a"]' ;;
 		esac
@@ -70,9 +64,6 @@ for version; do
 			docker-php-ext-* \
 			docker-php-source \
 			"$version/$dir/"
-		if [ "$variant" = 'apache' ]; then
-			cp -a apache2-foreground "$version/$dir/"
-		fi
 
 		cmd="$(jq <<<"$cmd" -r '.[0]')"
 		if [ "$cmd" != 'php' ]; then
