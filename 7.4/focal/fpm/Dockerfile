@@ -28,6 +28,8 @@ ENV PHPIZE_DEPS \
 		pkg-config \
 		re2c
 
+ENV TZ_DATA Europe/Berlin
+
 # persistent / runtime deps
 RUN set -eux; \
 	apt-get update; \
@@ -68,6 +70,8 @@ ENV PHP_SHA256="6c17172c4a411ccb694d9752de899bb63c72a0a3ebe5089116bc13658a1467b2
 
 RUN set -eux; \
 	\
+        ln -snf /usr/share/zoneinfo/$TZ_DATA /etc/localtime; \
+        echo $TZ_DATA > /etc/timezone; \
 	savedAptMark="$(apt-mark showmanual)"; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends gnupg dirmngr; \
@@ -196,6 +200,9 @@ RUN set -eux; \
 		| sort -u \
 		| xargs -r apt-mark manual \
 	; \
+# ERi
+# libargon gets purged despite that we need it. We mark it manually again...
+        apt-mark manual libargon2-dev libargon2-1 libxml2 libssl1.1 libsodium23 libedit2 libonig5 libpcre2-8-0 zlib1g; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
 	\
 # update pecl channel definitions https://github.com/docker-library/php/issues/443
