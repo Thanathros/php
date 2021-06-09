@@ -38,7 +38,7 @@ for version; do
 		export suite variant
 
 		alpineVer="${suite#alpine}" # "3.12", etc
-		template='Dockerfile-debian.template'
+		template='Dockerfile-ubuntu.template'
 		from="ubuntu:$suite"
 		export from
 

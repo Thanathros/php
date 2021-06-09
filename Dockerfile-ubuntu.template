@@ -23,7 +23,7 @@ ENV PHPIZE_DEPS \
 		pkg-config \
 		re2c
 
-ENV TZ_DATA Europa/Berlin
+ENV TZ_DATA Europe/Berlin
 
 # persistent / runtime deps
 RUN set -eux; \
@@ -67,6 +67,8 @@ ENV PHP_SHA256="{{ .sha256 // "" }}"
 
 RUN set -eux; \
 	\
+        ln -snf /usr/share/zoneinfo/$TZ_DATA /etc/localtime; \
+        echo $TZ_DATA > /etc/timezone; \
 	savedAptMark="$(apt-mark showmanual)"; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends gnupg dirmngr; \
@@ -115,10 +117,7 @@ RUN set -eux; \
 		echo 'Pin: release n=buster*'; \
 		echo 'Pin-Priority: 990'; \
 	} > /etc/apt/preferences.d/argon2-buster; \
-{{ ) else "" end -}
-}
-        ln -snf /usr/share/zoneinfo/$TZ_DATA /etc/localtime; \
-        echo $TZ_DATA > /etc/timezone; \
+{{ ) else "" end -}}
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
 		libargon2-dev \
@@ -224,6 +223,9 @@ RUN set -eux; \
 		| sort -u \
 		| xargs -r apt-mark manual \
 	; \
+# ERi
+# libargon gets purged despite that we need it. We mark it manually again...
+        apt-mark manual libargon2-dev libargon2-1 libxml2 libssl1.1 libsodium23 libedit2 libonig5 libpcre2-8-0 zlib1g; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
 	\
 # update pecl channel definitions https://github.com/docker-library/php/issues/443

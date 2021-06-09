@@ -1,26 +1,26 @@
 {
   "7.4": {
-    "ascUrl": "https://www.php.net/distributions/php-7.4.19.tar.xz.asc",
+    "ascUrl": "https://www.php.net/distributions/php-7.4.20.tar.xz.asc",
     "gpgKeys": "42670A7FE4D0441C8E4632349E4FDC074A4EF02D 5A52880781F755608BF815FC910DEB46F53EA312",
-    "sha256": "6c17172c4a411ccb694d9752de899bb63c72a0a3ebe5089116bc13658a1467b2",
-    "url": "https://www.php.net/distributions/php-7.4.19.tar.xz",
+    "sha256": "1fa46ca6790d780bf2cb48961df65f0ca3640c4533f0bca743cd61b71cb66335",
+    "url": "https://www.php.net/distributions/php-7.4.20.tar.xz",
     "variants": [
       "focal/cli",
       "focal/fpm"
     ],
-    "version": "7.4.19"
+    "version": "7.4.20"
   },
   "8.0": {
-    "ascUrl": "https://www.php.net/distributions/php-8.0.5.tar.xz.asc",
+    "ascUrl": "https://www.php.net/distributions/php-8.0.7.tar.xz.asc",
     "gpgKeys": "1729F83938DA44E27BA0F4D3DBDB397470D12172 BFDDD28642824F8118EF77909B67A5C12229118F",
-    "sha256": "5dd358b35ecd5890a4f09fb68035a72fe6b45d3ead6999ea95981a107fd1f2ab",
-    "url": "https://www.php.net/distributions/php-8.0.5.tar.xz",
+    "sha256": "d5fc2e4fc780a32404d88c360e3e0009bc725d936459668e9c2ac992f2d83654",
+    "url": "https://www.php.net/distributions/php-8.0.7.tar.xz",
     "variants": [
       "focal/cli",
       "focal/apache",
       "focal/fpm",
       "focal/zts"
     ],
-    "version": "8.0.5"
+    "version": "8.0.7"
   }
 }
